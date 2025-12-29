@@ -582,6 +582,10 @@ def admin_clicks():
                           admin_email=session.get('admin_email', 'Admin'),
                           clicks=clicks_data)
 
+@app.route('/health')
+def health():
+    return "✅ TradePass is LIVE", 200
+
 
 
 
@@ -612,6 +616,7 @@ if __name__ == '__main__':
     print("="*60 + "\n")
     
     app.run(debug=True, port=5000)
+
 
 
 
