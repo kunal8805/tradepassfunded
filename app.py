@@ -582,6 +582,11 @@ def admin_clicks():
                           admin_email=session.get('admin_email', 'Admin'),
                           clicks=clicks_data)
 
+@app.route("/")
+def health():
+    return "OK", 200
+
+
 # ============ INITIALIZE DATABASE ============
 def init_db():
     """Create database tables"""
@@ -609,4 +614,5 @@ if __name__ == '__main__':
     print("="*60 + "\n")
     
     app.run(debug=True, port=5000)
+
 
