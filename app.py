@@ -586,6 +586,11 @@ def admin_clicks():
 def health():
     return "✅ TradePass is LIVE", 200
 
+@app.route("/")
+def root():
+    return "TradePass Funded is running", 200
+
+
 
 
 
@@ -616,6 +621,7 @@ if __name__ == '__main__':
     print("="*60 + "\n")
     
     app.run(debug=True, port=5000)
+
 
 
 
