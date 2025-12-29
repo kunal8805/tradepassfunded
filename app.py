@@ -36,8 +36,10 @@ class Click(db.Model):
     click_id = db.Column(db.String(36))
 
 # ============ ADMIN CREDENTIALS ============
-ADMIN_EMAIL = "tragene@gmail.com"
-ADMIN_PASSWORD = "Kunal_8805"
+# Load environment variables
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'tragene@gmail.com')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'Kunal_8805')
+app.secret_key = os.environ.get('SECRET_KEY', 'tradepass-secret-key-2024')
 
 # ============ HELPER FUNCTIONS ============
 def hash_ip(ip):
@@ -607,3 +609,4 @@ if __name__ == '__main__':
     print("="*60 + "\n")
     
     app.run(debug=True, port=5000)
+
