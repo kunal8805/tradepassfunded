@@ -590,36 +590,20 @@ def init_db():
         print(f"🖱️ Current clicks: {Click.query.count()}")
 
 # ============ MAIN ============
+# Remove admin credentials from print statements
 if __name__ == '__main__':
-    # Delete old database if exists to avoid errors
-    if os.path.exists('tradepass.db'):
-        try:
-            os.remove('tradepass.db')
-            print("🗑️  Old database removed")
-        except:
-            pass
-    
+    # For LOCAL development only
     init_db()
     
     print("\n" + "="*60)
-    print("🚀 TRADEPASS ANALYTICS SERVER")
+    print("🚀 TRADEPASS DEVELOPMENT SERVER")
     print("="*60)
     print("🌐 Homepage:      http://localhost:5000")
     print("🔐 Admin Login:   http://localhost:5000/admin/login")
-    print("   (Also: http://localhost:5000/login)")
     print("📊 Dashboard:     http://localhost:5000/admin/dashboard")
-    print("👥 Visitors:      http://localhost:5000/admin/visitors")
-    print("🖱️ Clicks:        http://localhost:5000/admin/clicks")
     print("="*60)
-    print("🔑 ADMIN CREDENTIALS:")
-    print(f"   Email:    {ADMIN_EMAIL}")
-    print(f"   Password: {ADMIN_PASSWORD}")
-    print("="*60)
-    print("📈 FEATURES:")
-    print("• Clean login page - NO credentials shown")
-    print("• Real IP tracking with hashing")
-    print("• Every click tracked")
-    print("• Professional admin panel")
+    print("⚠️  LOCAL DEVELOPMENT ONLY")
+    print("⚠️  For production: Railway uses gunicorn")
     print("="*60 + "\n")
     
     app.run(debug=True, port=5000)
